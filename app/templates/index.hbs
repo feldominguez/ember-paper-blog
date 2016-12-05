@@ -1,0 +1,55 @@
+<div id="top-banner">
+    <div id="top-banner-ann">
+        An Ember Blog</div>
+</div>
+
+<div class="layout-row layout-align-center">
+    <div class="layout-row flex-80 layout-margin">
+
+        <div class="flex-30 layout-column flex-align-end">
+            <div class="flex-90 layout-column flex-align-center" style="margin: 0 auto">
+            {{#personal-sidebar}}{{/personal-sidebar}}
+            </div>
+        </div>
+
+        <div class="flex-70 layout-margin layout-column" style="margin-top:200px">
+            <div class="flex-90 layout-column">
+                {{#each model as |blog|}}
+                    <div class="flex cardIsThere">
+                        {{#paper-card as |card|}}
+                            {{#card.header as |header|}}
+                                {{#header.text as |text|}}
+                                    {{#text.title}}{{blog.title}}{{/text.title}}
+                                    {{#text.subhead}}{{blog.date}}{{/text.subhead}}
+                                {{/header.text}}
+                            {{/card.header}}
+                        <div class="md-media-sm card-media" style="max-height:160px;overflow-y:hidden">
+                            {{card.image src=blog.imgUrl alt="Washed Out" title="Washed Out"}}
+                        </div>
+                           {{! {{card.image src="http://i.imgur.com/GDZf8f8.png" alt="Washed Out" title="Washed Out"}}
+                            {{#card.content max-length=100}}
+                                <p>
+                                    {{blog.text}}
+                                </p>
+                            {{/card.content}}
+
+                            {{#card.actions}}
+
+                                {{!{{#link-to 'blog.post' blog.id}}
+                                    {{#paper-button class=blog.id onClick=(action (transition-to "blog.post" blog.id))}}Read{{/paper-button}}
+                                {{!{{/link-to}}
+                            {{/card.actions}}
+
+
+                        {{/paper-card}}
+                    </div>
+
+                {{/each}}
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>

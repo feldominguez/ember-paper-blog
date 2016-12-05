@@ -1,0 +1,36 @@
+<div id="top-banner">
+    <div id="top-banner-ann">
+        {{#each model as |blog|}}
+            {{blog.title}}
+            <span style="text-align: center; font-size: 10pt">{{blog.date}}</span>
+        {{/each}}
+    </div>
+</div>
+
+<div class="layout-row layout-align-center" style="margin-top:250px">
+    <div class="layout-column flex-45" style="position: relative">
+
+        <div class="flex" style="display: block; margin: 20 auto">
+
+
+
+            {{#each model as |blog|}}
+                <div class='flex' style="max-height: 400px;overflow: hidden; margin-bottom: 20px; display: flex; justify-content: center; align-items: flex-start">
+                    <img src={{blog.imgUrl}}>
+            </div>
+
+                <p style="margin-bottom: 150px">
+                    {{blog.text}}
+                </p>
+
+            {{/each}}
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
